@@ -1,6 +1,8 @@
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+
 from operation.models.operationdb import Clientelemarketing
+
 
 class ClientListView(LoginRequiredMixin, ListView):
     model = Clientelemarketing
