@@ -27,7 +27,7 @@ urlpatterns = [path('admin/', admin.site.urls),
 
                # Local Apps
                path('', include('operation.urls.HomeUrls')),
-               path('create/', include('operation.urls.CreateClientUrls')),
+               path('register/', include('operation.urls.CreateClientUrls')),
                path('list/', include('operation.urls.ListClientUrls')),
                path('edit/', include('operation.urls.EditClientUrls')),
                path('delete/', include('operation.urls.DeleteClientUrls')),
