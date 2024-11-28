@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<form class="login100-form validate-form" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <h2>Cadastre os seus dados</h2>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing">Username</span>
+          </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="name" name="username" placeholder="Username" required>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-s">Email</span>
+          </div>
+            <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group mb-3" data-validate = "Sua senha não pode ser muito parecida com o resto das suas informações pessoais. Sua senha precisa conter pelo menos 8 caracteres.">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup">Senha</span>
+          </div>
+            <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="password1" name="password1" placeholder="Senha" required>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGrou">Confirme a Senha</span>
+          </div>
+            <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="password2" name="password2" placeholder="Confirme a Senha" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Sign Up</button>
+        <br>
+        <li> Sua senha não pode ser muito parecida com o resto das suas informações pessoais.
+        <li> Sua senha precisa conter pelo menos 8 caracteres.
+        <li> Sua senha não pode ser uma senha comumente utilizada.
+        <li> Sua senha não pode ser inteiramente numérica.
+    </div>
+    <br>
+</form>
+{% endblock %}
