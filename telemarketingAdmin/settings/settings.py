@@ -133,11 +133,12 @@ LOGOUT_REDIRECT_URL = 'operation:home'
 STATIC_URL = "static/"
 STATIC_DIRS = (str(BASE_DIR.parent.joinpath('static')),)
 STATIC_ROOT = str(BASE_DIR.parent.joinpath('staticfiles'))
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_DIRS = [
     str(BASE_DIR.parent.joinpath('static'))
 ]
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
