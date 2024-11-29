@@ -31,18 +31,27 @@ SECRET_KEY = "django-insecure-xhx&jvg4exd+^$ik*q77_9e=(vr5dhpp084ew&a*sraw5#&1h&
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+]
+
+THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
-    "accounts",
-    "operation"
 ]
+
+PROJECT_APPS = [
+    "accounts",
+    "operation",
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
