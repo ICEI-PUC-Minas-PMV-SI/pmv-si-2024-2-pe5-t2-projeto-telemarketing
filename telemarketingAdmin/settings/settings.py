@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-xhx&jvg4exd+^$ik*q77_9e=(vr5dhpp084ew&a*sraw5#&1h&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 
 # ALLOWED_HOSTS = []
 
@@ -60,8 +60,7 @@ ROOT_URLCONF = "telemarketingAdmin.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # "DIRS": [str(BASE_DIR.parent.joinpath('templates'))],
-        "DIRS": [BASE_DIR.parent / "templates"],
+        "DIRS": [str(BASE_DIR.parent.joinpath('templates'))],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -76,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "telemarketingAdmin.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -86,7 +84,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -105,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -130,9 +126,9 @@ STATIC_DIRS = (str(BASE_DIR.parent.joinpath('static')),)
 STATIC_ROOT = str(BASE_DIR.parent.joinpath('staticfiles'))
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
-# print(f"1-{STATIC_DIRS}")
-# print(f"2-{STATIC_URL}")
-# print(f"3-{STATIC_ROOT}")
+STATICFILES_DIRS = [
+    str(BASE_DIR.parent.joinpath('static'))
+]
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
