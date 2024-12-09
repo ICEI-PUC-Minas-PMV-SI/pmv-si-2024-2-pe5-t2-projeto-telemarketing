@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Listar clientes{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="card">
+    <div class="card-body">
+        <div class="container p-5">
+            <h2 class="card-title">Clientes Cadastrados:</h2>
+            <hr>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr align="center">
+                        <th scope="col">Nome</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Fixo</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for client in clients %}
+                        {% if client.status %}
+
+                        <tr align="center">
+
+                            <td>{{ client.name }}</td>
+                            <td>{{ client.address }}</td>
+                            <td>{{ client.type_client }}</td>
+                            <td>{{ client.telcell }}</td>
+                            <td>{{ client.telfix }}</td>
+                            <td>{{ client.status }}</td>
+                            <td>
+                            <a href="{% url 'edit:client' pk=client.id %}" class="btn btn-outline-secondary">Editar</a>
+                            <a href="{% url 'delete:client' pk=client.id %}" class="btn btn-outline-danger">Deletar</a>
+                        </td>
+                        </tr>
+                        {% else %}
+                        <h2>Não temos clientes registrados no momento.</h2>
+                        {% endif %}
+                        {% empty %}
+                        <h2>Não temos clientes registrados no momento.</h2>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            <hr>
+        </div>
+    </div>
+</div>
+{% else %}
+<h1>Faça o Login na aplicação</h1>
+{% endif %}
+{% endblock %}

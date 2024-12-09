@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+
+
+{% block title %}Log In{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <form class="login100-form validate-form" method="post">
+    {% csrf_token %}
+      <div class="container">
+        <div class="row justify-content-center">
+            <h2>Faça login com sua conta</h2>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing">Username</span>
+          </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="username" name="username" placeholder="Username" required>
+        </div>
+
+        <div class="input-group mb-3" data-validate = "Sua senha não pode ser muito parecida com o resto das suas informações pessoais. Sua senha precisa conter pelo menos 8 caracteres.">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup">Senha</span>
+          </div>
+          <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="password" name="password" placeholder="Digite a senha" required>
+        </div>
+        <button type="submit" class="btn btn-success">Continuar</button>
+      </div>
+  </form>
+  <br>
+</div>
+{% endblock content %}
